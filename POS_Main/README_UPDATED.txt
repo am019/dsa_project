@@ -1,0 +1,23 @@
+
+POS System in C (DSA-Enhanced)
+-----------------------------
+Author: Arya Devang
+USN: PES1UG24AM054
+
+Updates:
+- Inventory now uses an in-memory Binary Search Tree (BST) for fast search and sorted listings.
+- Billing uses a FIFO queue to simulate customers waiting; queue state is visualized.
+- Report generation reads sales into a linked list and traverses it (visualized).
+- All structures are integrated; persistence is maintained with inventory.dat and sales.dat.
+
+To Compile:
+    make
+
+To Run:
+    ./pos
+
+Notes:
+- On program start, inventory.dat (if present) is loaded into memory (BST).
+- addItem() appends to inventory.dat and inserts into BST.
+- updateItem()/buyItem() rewrite inventory.dat after modifications and reload BST.
+- generateReport() reads sales.dat into a linked list and prints the traversal order.
