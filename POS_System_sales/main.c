@@ -3,6 +3,10 @@
 #include "inventory.h"
 #include "billing.h"
 #include "report.h"
+#include "utils.h"
+void clearInputBuffer();
+
+
 
 void salesMenu() {
     int ch;
@@ -12,7 +16,15 @@ void salesMenu() {
         printf("2. Return Items (Partial)\n");
         printf("0. Back to Main Menu\n");
         printf("Enter choice: ");
-        scanf("%d", &ch);
+
+        if (scanf("%d", &ch) != 1) {
+            printf("❌ Invalid input! Please enter a number.\n");
+            clearInputBuffer();  
+            ch = -1;
+            continue;
+        }
+
+        clearInputBuffer(); // remove leftover \n
 
         switch (ch) {
             case 1:
@@ -29,6 +41,7 @@ void salesMenu() {
         }
     } while (ch != 0);
 }
+
 
 #include <stdio.h>
 
